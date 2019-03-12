@@ -1,0 +1,5 @@
+<aura:event type="COMPONENT" description="Event template">
+    <aura:attribute name="recordType" type="String" />
+    <aura:attribute name="color" type="String" />
+    <aura:attribute name="isCancel" type="Boolean" default="false" />
+</aura:event>

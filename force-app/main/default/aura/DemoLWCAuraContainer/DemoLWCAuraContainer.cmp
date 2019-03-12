@@ -1,0 +1,55 @@
+<aura:component
+    implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+    access="global"
+>
+    <aura:attribute
+        name="hideAura"
+        type="Boolean"
+        default="true"
+        access="private"
+    />
+    <aura:attribute
+        name="hideLWC"
+        type="Boolean"
+        default="true"
+        access="private"
+    />
+
+    <aura:handler
+        name="RecordTypeSelected"
+        event="c:RecordTypeSelected"
+        action="{!c.getRecType}"
+    />
+
+    <lightning:notificationsLibrary aura:id="notifLib" />
+
+    <lightning:card title="Having 2 components of the same type">
+        <div class="slds-p-horizontal_small">
+            <lightning:button
+                variant="brand"
+                label="The Aura Version"
+                title="What we did before"
+                onclick="{!c.moonshot}"
+            />
+            <lightning:button
+                variant="success"
+                label="The LWC Version"
+                title="What we do now"
+                onclick="{!c.marsshot}"
+            />
+            <aura:if isTrue="{! !v.hideAura}">
+                <c:SampleDialogAura
+                    objectName="Opportunity"
+                    heading="Aura: Pick an Opportunity and Color"
+                />
+            </aura:if>
+            <aura:if isTrue="{! !v.hideLWC}">
+                <c:sampleDialogLwc
+                    objectName="Opportunity"
+                    heading="LWC: Pick an Opportunity and Color"
+                    onselectionmade="{!c.lwcselection}"
+                />
+            </aura:if>
+        </div>
+    </lightning:card>
+</aura:component>

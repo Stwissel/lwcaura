@@ -1,0 +1,112 @@
+<aura:component controller="SampleDialogController">
+    <!-- public Attributes -->
+    <aura:attribute name="objectName" type="String" />
+    <aura:attribute name="heading" type="String" />
+
+    <!-- private attributes -->
+    <aura:attribute name="availableColorList" type="List" access="private" />
+    <aura:attribute name="availabeRecordTypes" type="List" access="private" />
+    <aura:attribute name="selectedRecordType" type="String" access="private" />
+    <aura:attribute name="selectedColor" type="String" access="private" />
+    <aura:attribute
+        name="componentReady"
+        type="Boolean"
+        default="false"
+        access="private"
+    />
+
+    <!-- EVENT -->
+    <aura:registerEvent name="RecordTypeSelected" type="c:RecordTypeSelected" />
+
+    <!-- Handler -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <!-- UI -->
+    <div class="slds-m-around_xx-large">
+        <section
+            role="dialog"
+            tabindex="-1"
+            aria-labelledby="modal-heading-01"
+            aria-modal="true"
+            aria-describedby="modal-content-id-1"
+            class="slds-modal slds-fade-in-open"
+        >
+            <div class="slds-modal__container">
+                <!-- ###### MODAL BOX HEADER Start ###### -->
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon
+                        iconName="utility:close"
+                        onclick="{! c.cancelNewMethod }"
+                        alternativeText="close"
+                        variant="bare-inverse"
+                        class="slds-modal__close"
+                    />
+                    <h2
+                        id="modal-heading-01"
+                        class="slds-text-heading_medium slds-hyphenate"
+                        >{!v.heading}
+                    </h2>
+                </header>
+                <!--###### MODAL BOX BODY Part Start######-->
+                <aura:if isTrue="{!v.componentReady}">
+                    <div
+                        class="slds-modal__content slds-p-around_medium"
+                        id="modal-content-id-1"
+                    >
+                        <div
+                            class="modal-dialog vertical-align-center slds-align_absolute-center"
+                        >
+                            <lightning:layout
+                                multipleRows="true"
+                                horizontalAlign="space"
+                                verticalAlign="center"
+                            >
+                                <lightning:layoutItem
+                                    size="12"
+                                    padding="around-large"
+                                >
+                                    <lightning:radioGroup
+                                        name="radioGroupRecords"
+                                        label="Select Record Type"
+                                        options="{! v.availabeRecordTypes }"
+                                        value="{! v.selectedRecordType }"
+                                        type="radio"
+                                        required="true"
+                                        class="slds-radio"
+                                    />
+
+                                    <lightning:radioGroup
+                                        name="radioGroupColors"
+                                        label="Select Color"
+                                        options="{! v.availableColorList }"
+                                        value="{! v.selectedColor }"
+                                        type="radio"
+                                        required="true"
+                                        class="slds-radio"
+                                    />
+                                </lightning:layoutItem>
+                            </lightning:layout>
+                        </div>
+                    </div>
+                </aura:if>
+                <!--###### MODAL BOX FOOTER Part Start ######-->
+                <footer class="slds-modal__footer">
+                    <lightning:button
+                        variant="neutral"
+                        label="cancel"
+                        title="Cancel"
+                        onclick="{! c.cancelNewMethod }"
+                    />
+                    <lightning:button
+                        variant="brand"
+                        label="Select"
+                        title="Select"
+                        onclick="{! c.selectionMade}"
+                    />
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+        <!--###### MODAL BOX Part END Here ######-->
+    </div>
+</aura:component>
