@@ -1,0 +1,35 @@
+<template>
+    <lightning-card title={objectApiName} icon-name="standard:record">
+        <lightning-record-edit-form
+            object-api-name={objectApiName}
+            onsuccess={handleRecordCreated}
+            onload={handleLoad}
+            record-id={recordId}
+        >
+            <lightning-messages></lightning-messages>
+            <div class="slds-grid">
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-input-field
+                        field-name={color1Field}
+                    ></lightning-input-field>
+                    <lightning-input-field
+                        field-name={color2Field}
+                    ></lightning-input-field>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-input-field
+                        field-name={nameField}
+                    ></lightning-input-field>
+                    <lightning-input-field
+                        field-name={summaryField}
+                    ></lightning-input-field>
+                </div>
+            </div>
+            <lightning-button
+                type="submit"
+                variant="success"
+                label="Create Record"
+            ></lightning-button>
+        </lightning-record-edit-form>
+    </lightning-card>
+</template>
