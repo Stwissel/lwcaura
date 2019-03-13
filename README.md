@@ -32,4 +32,4 @@ Syntax for LWC component:
 
 -   Opportunity object needs to have a record type (or change the call to fetch another object)
 -   Create a lightning page and add `DemoLWCAuraContainer` to it - or add that to any lightning page
-- Deploy with `sfdx force:source:deploy -p experiments/experiment1`
+-   Deploy with `sfdx force:source:deploy -p experiments/experiment1`

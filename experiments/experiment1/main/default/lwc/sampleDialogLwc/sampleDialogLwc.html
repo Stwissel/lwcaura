@@ -1,86 +1,93 @@
 <template>
     <div class="slds-m-around_xx-large">
         <template if:true={componentReady}>
-        <section
-            role="dialog"
-            tabindex="-1"
-            aria-labelledby="modal-heading-01"
-            aria-modal="true"
-            aria-describedby="modal-content-id-1"
-            class="slds-modal slds-fade-in-open">
-            <div class="slds-modal__container">
-                <!-- ###### MODAL BOX HEADER Start ###### -->
-                <header class="slds-modal__header">
-                    <lightning-button-icon
-                        icon-name="utility:close"
-                        onclick={cancelNewMethod}
-                        alternative-text="close"
-                        variant="bare-inverse"
-                        class="slds-modal__close" >
-                    </lightning-button-icon>
-                    <h2
-                        id="modal-heading-01"
-                        class="slds-text-heading_medium slds-hyphenate">
-                        {heading}
-                    </h2>
-                </header>
-                <!--###### MODAL BOX BODY Part Start######-->
-               
+            <section
+                role="dialog"
+                tabindex="-1"
+                aria-labelledby="modal-heading-01"
+                aria-modal="true"
+                aria-describedby="modal-content-id-1"
+                class="slds-modal slds-fade-in-open"
+            >
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <lightning-button-icon
+                            icon-name="utility:close"
+                            onclick={cancelNewMethod}
+                            alternative-text="close"
+                            variant="bare-inverse"
+                            class="slds-modal__close"
+                        >
+                        </lightning-button-icon>
+                        <h2
+                            id="modal-heading-01"
+                            class="slds-text-heading_medium slds-hyphenate"
+                        >
+                            {heading}
+                        </h2>
+                    </header>
                     <div
                         class="slds-modal__content slds-p-around_medium"
-                        id="modal-content-id-1">
+                        id="modal-content-id-1"
+                    >
                         <div
-                            class="modal-dialog vertical-align-center slds-align_absolute-center">
+                            class="modal-dialog vertical-align-center slds-align_absolute-center"
+                        >
                             <lightning-layout
                                 multiple-rows="true"
                                 horizontal-align="space"
-                                vertical-align="center">
+                                vertical-align="center"
+                            >
                                 <lightning-layout-item
                                     size="12"
-                                    padding="around-large">
+                                    padding="around-large"
+                                >
                                     <lightning-radio-group
-                                         name="radioGroupRecords"
+                                        name="radioGroupRecords"
                                         label="Select Record Type"
                                         options={availabeRecordTypes}
                                         value={selectedRecordType}
                                         type="radio"
                                         onchange={handleRecordTypeChange}
-                                        required class="slds-radio">
+                                        required
+                                        class="slds-radio"
+                                    >
                                     </lightning-radio-group>
-    
+
                                     <lightning-radio-group
-                                    name="radioGroupColors"
-                                    label="Select Color"
-                                    options={availableColorList}
-                                    value={selectedColor}
-                                    onchange={handleColorChange}
-                                    type="radio"
-                                    required class="slds-radio">
+                                        name="radioGroupColors"
+                                        label="Select Color"
+                                        options={availableColorList}
+                                        value={selectedColor}
+                                        onchange={handleColorChange}
+                                        type="radio"
+                                        required
+                                        class="slds-radio"
+                                    >
                                     </lightning-radio-group>
                                 </lightning-layout-item>
                             </lightning-layout>
                         </div>
                     </div>
-                
-                <!--###### MODAL BOX FOOTER Part Start ######-->
-                <footer class="slds-modal__footer">
-                    <lightning-button
-                        variant="neutral"
-                        label="cancel"
-                        title="Cancel"
-                        onclick={cancelNewMethod}>
-                    </lightning-button>
-                    <lightning-button
-                        variant="brand"
-                        label="Select"
-                        title="Select"
-                        onclick={selectionMade} >
-                    </lightning-button>
-                </footer>
-            </div>
-        </section>
+                    <footer class="slds-modal__footer">
+                        <lightning-button
+                            variant="neutral"
+                            label="cancel"
+                            title="Cancel"
+                            onclick={cancelNewMethod}
+                        >
+                        </lightning-button>
+                        <lightning-button
+                            variant="brand"
+                            label="Select"
+                            title="Select"
+                            onclick={selectionMade}
+                        >
+                        </lightning-button>
+                    </footer>
+                </div>
+            </section>
         </template>
         <div class="slds-backdrop slds-backdrop_open"></div>
-        <!--###### MODAL BOX Part END Here ######-->
     </div>
 </template>
