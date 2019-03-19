@@ -1,0 +1,9 @@
+<aura:component
+    implements="force:hasRecordId,force:hasSObjectName,forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes"
+>
+    <c:infoBox
+        recordId="{!v.recordId}"
+        objectApiName="{!v.sObjectName}"
+        title="Inside Wrapper"
+    ></c:infoBox>
+</aura:component>
