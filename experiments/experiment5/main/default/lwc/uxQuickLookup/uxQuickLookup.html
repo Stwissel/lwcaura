@@ -1,0 +1,33 @@
+<template>
+    <div class={resultClass} data-select="single">
+        <div class="slds-form-element__control">
+            <!-- sequence completed record selected -->
+            <div if:true={selectedRecord}>
+                <label>{label}</label>
+                <div class="slds-pill-container">
+                    <lightning-pill
+                        class="pillSize"
+                        label={selectedRecord.Name}
+                        onremove={handlePillRemove}
+                    >
+                        <lightning-icon
+                            icon-name={iconName}
+                            variant="plain"
+                            alternative-text={selectedRecord.Name}
+                        >
+                        </lightning-icon>
+                    </lightning-pill>
+                </div>
+            </div>
+            <c-ux-debounced-input
+                label={label}
+                onchange={handleSearchTerm}
+                onclick={onSearchFieldClick}
+                if:false={selectedRecord}
+            >
+            </c-ux-debounced-input>
+        </div>
+    </div>
+
+    {results}
+</template>

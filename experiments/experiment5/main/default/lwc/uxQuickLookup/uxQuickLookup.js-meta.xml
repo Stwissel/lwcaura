@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="uxQuickLookup">
+    <apiVersion>45.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Quick Object Lookup</masterLabel>
+    <description>Mobile save Object Lookup</description>
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__AppPage, lightning__HomePage, lightning__RecordPage">
+            <property name="objectApiName" label="Object" type="String" default="Account" required="true"/>
+            <property name="iconName" label="Icon" type="String" default="standard:account" required="true"/>
+            <property name="label" label="Label" type="String" required="false"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

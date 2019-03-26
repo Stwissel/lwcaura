@@ -1,5 +1,4 @@
 import { LightningElement, api } from 'lwc';
-import { clearTimeout } from 'timers';
 
 export default class UxDebouncedInput extends LightningElement {
     @api label = 'Lookup';
@@ -12,10 +11,11 @@ export default class UxDebouncedInput extends LightningElement {
 
     /* Bubbles change event up after debouncing */
     handleChange(event) {
-        clearTimeout(this.timeout);
+        event.stopPropagation();
+        window.clearTimeout(this.timeout);
         let searchTerm = event.target.value;
         // eslint-disable-next-line @lwc/lwc/no-async-operation
-        this.timeout = setTimeout(() => {
+        this.timeout = window.setTimeout(() => {
             this.fireChange(searchTerm);
         }, this.delay);
     }
