@@ -1,10 +1,12 @@
 import { LightningElement, api, track } from 'lwc';
 import fetchLookUpValues from '@salesforce/apex/CustomLookUpController.fetchLookUpValues';
+import fetchExtendedLookUpValues from '@salesforce/apex/CustomLookUpController.fetchExtendedLookUpValues';
 
 export default class UxQuickLookup extends LightningElement {
     @api objectApiName;
     @api iconName = 'standard:account';
     @api label = 'Lookup';
+    @api fields = null;
 
     @track resultClass;
     @track selectedRecord = null;
@@ -24,12 +26,20 @@ export default class UxQuickLookup extends LightningElement {
             this.switchResult(true);
             this.message = 'searching...';
             this.showSpinner = true;
-            fetchLookUpValues({
+            let searchParams = {
                 searchKeyWord: searchValue,
                 objectName: this.objectApiName
-            })
-                .then(result => this.setResult(result))
-                .catch(error => this.handleError(error));
+            };
+            if (this.fields) {
+                this.addFieldsToParam(searchParams);
+                fetchExtendedLookUpValues(searchParams)
+                    .then(result => this.setResult(result))
+                    .catch(error => this.handleError(error));
+            } else {
+                fetchLookUpValues(searchParams)
+                    .then(result => this.setResult(result))
+                    .catch(error => this.handleError(error));
+            }
         } else {
             this.switchResult(false);
             this.message = null;
@@ -37,6 +47,24 @@ export default class UxQuickLookup extends LightningElement {
             this.results = null;
         }
         this.lastSearchValue = searchValue;
+    }
+
+    /* Ensure we always have Name and Id in the query */
+    addFieldsToParam(searchParam) {
+        let allFields = this.fields.split(',');
+        allFields.push('Id');
+        allFields.push('Name');
+        let cleanFields = this.dedupeArray(allFields).join(',');
+        searchParam.fieldsToQuery = cleanFields;
+    }
+
+    dedupeArray(incoming) {
+        var uniqEs6 = arrArg => {
+            return arrArg.filter((elem, pos, arr) => {
+                return arr.indexOf(elem) === pos;
+            });
+        };
+        return uniqEs6(incoming);
     }
 
     setResult(newValues) {

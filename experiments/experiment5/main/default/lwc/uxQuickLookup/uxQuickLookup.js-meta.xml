@@ -14,6 +14,7 @@
             <property name="objectApiName" label="Object" type="String" default="Account" required="true"/>
             <property name="iconName" label="Icon" type="String" default="standard:account" required="true"/>
             <property name="label" label="Label" type="String" required="false"/>
-        </targetConfig>
-    </targetConfigs>
-</LightningComponentBundle>
+            <property name="fields" label="Fields to query" type="String" default="Id,Name" required="false">
+            </targetConfig>
+        </targetConfigs>
+    </LightningComponentBundle>
