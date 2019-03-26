@@ -11,6 +11,18 @@
         {
             "path": "experiments/experiment2",
             "default": false
+        },
+        {
+            "path": "experiments/experiment3",
+            "default": false
+        },
+        {
+            "path": "experiments/experiment4",
+            "default": false
+        },
+        {
+            "path": "experiments/experiment5",
+            "default": false
         }
     ],
     "namespace": "",
