@@ -3,6 +3,7 @@ import { LightningElement, api } from 'lwc';
 export default class UxDebouncedInput extends LightningElement {
     @api label = 'Lookup';
     @api delay = 300;
+    @api value;
 
     constructor() {
         super();

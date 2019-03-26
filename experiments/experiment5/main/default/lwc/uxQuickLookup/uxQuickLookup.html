@@ -22,12 +22,31 @@
             <c-ux-debounced-input
                 label={label}
                 onchange={handleSearchTerm}
-                onclick={onSearchFieldClick}
                 if:false={selectedRecord}
+                value={lastSearchValue}
             >
             </c-ux-debounced-input>
         </div>
-    </div>
+        <ul
+            style="min-height:40px;margin-top:0px !important"
+            class="slds-listbox slds-listbox_vertical slds-dropdown slds-dropdown_fluid slds-lookup__menu slds"
+            role="listbox"
+        >
+            <lightning-spinner
+                variant="brand"
+                size="small"
+                if:true={showSpinner}
+            ></lightning-spinner>
+            <center>{message}</center>
 
-    {results}
+            <template if:true={results} for:each={results} for:item="singleRec">
+                <c-ux-quick-lookup-result
+                    icon-name={iconName}
+                    record={singleRec}
+                    onselection={handleRecordSelect}
+                    key={singleRec.Id}
+                ></c-ux-quick-lookup-result>
+            </template>
+        </ul>
+    </div>
 </template>
