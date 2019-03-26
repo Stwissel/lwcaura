@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 ({
     doInit: function(component, event, helper) {
         helper.setCounter(component, 2, helper);
