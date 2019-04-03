@@ -4,12 +4,13 @@ import { NavigationMixin } from 'lightning/navigation';
 export default class CounterIncrementor extends NavigationMixin(
     LightningElement
 ) {
-    @track buttonValue = 42;
+    @track buttonValue = localStorage.getItem('fancyNumberPrivate') || 42;
     @track localStore = 'n/a';
 
     handleClick() {
         this.buttonValue++;
         localStorage.setItem('fancyNumber', this.buttonValue);
+        localStorage.setItem('fancyNumberPrivate', this.buttonValue);
         // And navigate
         this[NavigationMixin.Navigate]({
             type: 'standard__component',
@@ -22,13 +23,22 @@ export default class CounterIncrementor extends NavigationMixin(
         });
     }
 
-    renderedCallback() {
+    goPage() {
+        this.buttonValue++;
+        localStorage.setItem('fancyNumber', this.buttonValue);
+        // And navigate
+        this[NavigationMixin.Navigate]({
+            type: 'standard__namedPage',
+            attributes: {
+                pageName: 'TangoPage'
+            }
+        });
+    }
+
+    handleRefresh() {
         // eslint-disable-next-line no-debugger
         debugger;
         let newNumber = localStorage.getItem('fancyNumber');
-        // eslint-disable-next-line eqeqeq
-        if (!(newNumber == this.localStore)) {
-            this.localStorage = newNumber || 'n/a';
-        }
+        this.localStorage = newNumber || 'n/a';
     }
 }

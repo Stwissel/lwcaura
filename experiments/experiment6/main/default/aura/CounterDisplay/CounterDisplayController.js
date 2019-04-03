@@ -3,12 +3,20 @@
 /* eslint-disable no-unused-expressions */
 ({
     doInit: function(component, event, helper) {
-        // eslint-disable-next-line no-debugger
-        debugger;
-        var newNumber = localStorage.getItem('fancyNumber');
-        if (newNumber) {
-            component.set('v.theNumber', newNumber);
-        }
-        localStorage.removeItem('fancyNumber');
+        helper.checkForFancyNumber(
+            component,
+            'v.theNumber',
+            'v.secondNumber',
+            'fancyNumber'
+        );
+    },
+
+    handlePageChange: function(component, event, helper) {
+        helper.checkForFancyNumber(
+            component,
+            'v.theNumber',
+            'v.secondNumber',
+            'fancyNumber'
+        );
     }
 });

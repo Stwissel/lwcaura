@@ -1,5 +1,10 @@
 <template>
+    <lightning-card title="Number Display">
     <h1>The counter incrementor: {buttonValue}</h1>
     <button onclick={handleClick}>Click Bait</button>
     <h2>In the local store: {localStore}</h2>
+    <button onclick={handleRefresh}>Refresh Local Store</button>
+    <hr></hr>
+    <button onclick={goPage}>Go Page</button>
+    </lightning-card>
 </template>

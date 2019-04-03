@@ -7,8 +7,22 @@
         access="private"
         default="n/a"
     />
+    <aura:attribute
+        name="secondNumber"
+        type="String"
+        access="private"
+        default="n/a"
+    />
+
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
-    <h1> The numbers are the numbers</h1>
-    <p> our number is: {!v.theNumber}</p>
-    <hr />
+    <aura:handler
+        name="change"
+        value="{!v.pageReference}"
+        action="{!c.handlePageChange}"
+    />
+    <lightning:card title="Number Display">
+        <h1> The numbers are the numbers</h1>
+        <p> localStore is: {!v.theNumber}</p>
+        <p> pageRef is: {!v.theNumber}</p>
+    </lightning:card>
 </aura:component>
