@@ -23,6 +23,10 @@
         {
             "path": "experiments/experiment5",
             "default": false
+        },
+        {
+            "path": "experiments/experiment6",
+            "default": false
         }
     ],
     "namespace": "",

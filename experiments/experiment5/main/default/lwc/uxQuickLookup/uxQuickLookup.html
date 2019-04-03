@@ -8,37 +8,33 @@
                     <lightning-pill
                         class="pillSize"
                         label={selectedRecord.Name}
-                        onremove={handlePillRemove}
-                    >
+                        onremove={handlePillRemove}>
                         <lightning-icon
                             icon-name={iconName}
                             variant="plain"
-                            alternative-text={selectedRecord.Name}
-                        >
+                            alternative-text={selectedRecord.Name}>
                         </lightning-icon>
                     </lightning-pill>
                 </div>
             </div>
+            <!-- Input for search term -->
             <c-ux-debounced-input
                 label={label}
                 onchange={handleSearchTerm}
                 if:false={selectedRecord}
-                value={lastSearchValue}
-            >
+                value={lastSearchValue}>
             </c-ux-debounced-input>
         </div>
         <ul
             style="min-height:40px;margin-top:0px !important"
             class="slds-listbox slds-listbox_vertical slds-dropdown slds-dropdown_fluid slds-lookup__menu slds"
-            role="listbox"
-        >
+            role="listbox">
             <lightning-spinner
                 variant="brand"
                 size="small"
                 if:true={showSpinner}
             ></lightning-spinner>
             <center>{message}</center>
-
             <template if:true={results} for:each={results} for:item="singleRec">
                 <c-ux-quick-lookup-result
                     icon-name={iconName}
