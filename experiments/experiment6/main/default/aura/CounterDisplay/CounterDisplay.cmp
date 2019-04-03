@@ -1,0 +1,14 @@
+<aura:component
+    implements="lightning:isUrlAddressable, flexipage:availableForAllPageTypes, flexipage:availableForRecordHome"
+>
+    <aura:attribute
+        name="theNumber"
+        type="String"
+        access="private"
+        default="n/a"
+    />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <h1> The numbers are the numbers</h1>
+    <p> our number is: {!v.theNumber}</p>
+    <hr />
+</aura:component>
