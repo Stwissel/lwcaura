@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable vars-on-top */
 /* eslint-disable no-unused-expressions */
 ({
     doInit: function(component, event, helper) {
