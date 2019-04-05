@@ -2,24 +2,25 @@
     <lightning-card title="Form Sample">
         <div class="slds-p-horizontal_small">
             <c-extended-form object-api-name="Account">
-                <lightning-layout-item size="6">
+                <lightning-layout-item size="6" padding="around-medium">
                     <lightning-input-field
                         field-name="Name"
                     ></lightning-input-field>
                 </lightning-layout-item>
-                <lightning-layout-item size="6"
+                <lightning-layout-item size="6" padding="around-medium"
                     ><lightning-input-field
                         field-name="AccountSource"
                     ></lightning-input-field
                 ></lightning-layout-item>
-                <lightning-layout-item size="6"
+                <lightning-layout-item size="6" padding="around-medium"
                     ><lightning-input-field
                         field-name="AccountNumber"
                     ></lightning-input-field
                 ></lightning-layout-item>
-                <lightning-layout-item size="6"
+                <lightning-layout-item size="6" padding="around-medium"
                     ><c-special-input
-                        extended-field-name="Sic"
+                        field-name="SLASerialNumber__c"
+                        data-field
                     ></c-special-input>
                 </lightning-layout-item>
             </c-extended-form>

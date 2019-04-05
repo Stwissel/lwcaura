@@ -1,8 +1,8 @@
-/* eslint-disable no-debugger */
 import { LightningElement, api } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+import { NavigationMixin } from 'lightning/navigation';
 
-export default class ExtendedForm extends LightningElement {
+export default class ExtendedForm extends NavigationMixin(LightningElement) {
     @api recordTypeId;
     @api recordId;
     @api objectApiName;
@@ -11,28 +11,36 @@ export default class ExtendedForm extends LightningElement {
         super();
         // Holds our fields
         this.specialFieldMap = {};
-    }
-
-    connectedCallback() {
-        const slot = this.template.querySelector('slot');
-        if (slot) {
-            slot.addEventListener('valueChanged', this.listenDataChange, true);
-        }
+        this.addEventListener('valueChanged', this.listenDataChange, false);
     }
 
     /* Capturing all changed values from our data control */
     listenDataChange = event => {
-        debugger;
         let fieldInfo = event.detail;
         this.specialFieldMap[fieldInfo.name] = fieldInfo.value;
     };
 
-    formLoadHandler() {
-        debugger;
-        let tangoEvent = new CustomEvent('tango', {
-            details: { color: 'red', mood: 'good' }
-        });
-        this.dispatchEvent(tangoEvent);
+    formLoadHandler(event) {
+        let fields = event.detail.record.fields;
+        const defaultValues = {};
+        for (let f in fields) {
+            if (fields.hasOwnProperty(f)) {
+                let elem = fields[f];
+                let val = elem.displayValue || elem.value;
+                if (val) {
+                    defaultValues[f] = val;
+                }
+            }
+        }
+        // Now the input fields
+        let specialNodes = this.querySelectorAll('[data-field]');
+        for (let i = 0; i < specialNodes.length; i++) {
+            let specialNode = specialNodes[i];
+            let fieldName = specialNode.fieldName;
+            if (defaultValues[fieldName]) {
+                specialNode.value = defaultValues[fieldName];
+            }
+        }
     }
 
     formSubmitHandler = event => {
@@ -51,7 +59,6 @@ export default class ExtendedForm extends LightningElement {
 
     formSuccessHandler(event) {
         const record = event.detail;
-        debugger;
         const evt = new ShowToastEvent({
             title: 'Record created',
             message:
@@ -61,5 +68,15 @@ export default class ExtendedForm extends LightningElement {
             variant: 'success'
         });
         this.dispatchEvent(evt);
+        // Now navigate
+        let destination = {
+            type: 'standard__recordPage',
+            attributes: {
+                recordId: record.id,
+                objectApiName: this.objectApiName,
+                actionName: 'view'
+            }
+        };
+        this[NavigationMixin.Navigate](destination);
     }
 }
