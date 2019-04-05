@@ -1,30 +1,28 @@
 <template>
     <lightning-card title="Form Sample">
         <div class="slds-p-horizontal_small">
-            <lightning-layout multiple-rows="true">
-                <c-extended-form object-api-name="Account">
-                    <lightning-layout-item size="6">
-                        <lightning-input-field
-                            field-name="Name"
-                        ></lightning-input-field>
-                    </lightning-layout-item>
-                    <lightning-layout-item size="6"
-                        ><lightning-input-field
-                            field-name="AccountSource"
-                        ></lightning-input-field
-                    ></lightning-layout-item>
-                    <lightning-layout-item size="6"
-                        ><lightning-input-field
-                            field-name="AccountNumber"
-                        ></lightning-input-field
-                    ></lightning-layout-item>
-                    <lightning-layout-item size="6"
-                        ><lightning-input-field
-                            extended-field-name="Jigsaw"
-                        ></lightning-input-field
-                    ></lightning-layout-item>
-                </c-extended-form>
-            </lightning-layout>
+            <c-extended-form object-api-name="Account">
+                <lightning-layout-item size="6">
+                    <lightning-input-field
+                        field-name="Name"
+                    ></lightning-input-field>
+                </lightning-layout-item>
+                <lightning-layout-item size="6"
+                    ><lightning-input-field
+                        field-name="AccountSource"
+                    ></lightning-input-field
+                ></lightning-layout-item>
+                <lightning-layout-item size="6"
+                    ><lightning-input-field
+                        field-name="AccountNumber"
+                    ></lightning-input-field
+                ></lightning-layout-item>
+                <lightning-layout-item size="6"
+                    ><c-special-input
+                        extended-field-name="Sic"
+                    ></c-special-input>
+                </lightning-layout-item>
+            </c-extended-form>
         </div>
     </lightning-card>
 </template>
