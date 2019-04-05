@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="What's in your slot">
+        <div class="slds-p-horizontal_small">
+            <p>Slot count: <b>{slotCount}</b></p>
+            <p>The current color is {currentColor}</p>
+            <ul>
+                <slot></slot>
+            </ul>
+        </div>
+    </lightning-card>
+</template>
