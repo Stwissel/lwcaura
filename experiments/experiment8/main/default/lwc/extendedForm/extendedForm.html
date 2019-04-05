@@ -1,0 +1,20 @@
+<template>
+    <lightning-record-edit-form
+        record-type-id={recordTypeId}
+        record-id={recordId}
+        object-api-name={objectApiName}
+    >
+        <lightning-layout-item size="12">
+            <lightning-messages> </lightning-messages>
+        </lightning-layout-item>
+        <slot></slot>
+        <lightning-button
+            class="slds-m-top_small"
+            variant="brand"
+            type="submit"
+            name="save"
+            label="Save"
+        >
+        </lightning-button>
+    </lightning-record-edit-form>
+</template>
