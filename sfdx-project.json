@@ -27,6 +27,10 @@
         {
             "path": "experiments/experiment6",
             "default": false
+        },
+        {
+            "path": "experiments/experiment7",
+            "default": false
         }
     ],
     "namespace": "",
