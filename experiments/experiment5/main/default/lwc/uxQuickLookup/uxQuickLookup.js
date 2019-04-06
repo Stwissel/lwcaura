@@ -7,6 +7,7 @@ export default class UxQuickLookup extends LightningElement {
     @api iconName = 'standard:account';
     @api label = 'Lookup';
     @api fields = null;
+    @api fieldName = null;
 
     @track resultClass;
     @track selectedRecord = null;
@@ -86,16 +87,28 @@ export default class UxQuickLookup extends LightningElement {
 
     handlePillRemove() {
         this.selectedRecord = null;
-        let payload = {
-            detail: {
-                canceled: true,
-                recordId: null
-            }
-        };
-        let selected = new CustomEvent('selection', payload);
-        this.dispatchEvent(selected);
+        this.dispatchSelectionResult();
         // Restore last results
         this.switchResult(this.lastSearchValue && this.results);
+    }
+
+    /* Sends back the result of a selection, compatible to extendedForm
+       when the property fieldName is set
+    */
+    dispatchSelectionResult() {
+        let eventName = this.fieldName ? 'valueChanged' : 'recordselected';
+        let payload = {
+            canceled: this.selectedRecord ? true : false,
+            recordId: this.selectedRecord,
+            value: this.selectedRecord,
+            name: this.fieldName
+        };
+        let selected = new CustomEvent(eventName, {
+            detail: payload,
+            bubbles: true,
+            cancelable: true
+        });
+        this.dispatchEvent(selected);
     }
 
     handleError(error) {
@@ -106,12 +119,8 @@ export default class UxQuickLookup extends LightningElement {
     }
 
     handleRecordSelect(event) {
-        let record = event.detail;
-        this.selectedRecord = record;
-        let selectionDispatch = new CustomEvent('recordselected', {
-            detail: record
-        });
-        this.dispatchEvent(selectionDispatch);
+        this.selectedRecord = event.detail;
+        this.dispatchSelectionResult();
         this.switchResult(false);
     }
 }

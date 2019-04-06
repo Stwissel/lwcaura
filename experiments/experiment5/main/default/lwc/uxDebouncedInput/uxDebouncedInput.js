@@ -4,6 +4,7 @@ export default class UxDebouncedInput extends LightningElement {
     @api label = 'Lookup';
     @api delay = 300;
     @api value;
+    @api fieldName = null;
 
     constructor() {
         super();
@@ -21,8 +22,18 @@ export default class UxDebouncedInput extends LightningElement {
         }, this.delay);
     }
 
+    /* Sends changes back compatible to extended form when
+       the fieldName as been set */
     fireChange(changedValue) {
-        let customChange = new CustomEvent('change', { detail: changedValue });
+        let eventName = this.fieldName ? 'valueChanged' : 'change';
+        let payload = this.fieldName
+            ? { name: this.fieldName, value: this.changedValue }
+            : changedValue;
+        let customChange = new CustomEvent(eventName, {
+            detail: payload,
+            bubbles: true,
+            cancelable: true
+        });
         this.dispatchEvent(customChange);
     }
 }
