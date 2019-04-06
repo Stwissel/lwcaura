@@ -3,6 +3,6 @@
     <apiVersion>45.0</apiVersion>
     <isExposed>false</isExposed>
     <description>
-        <div>Icon made by www.flaticon.com/authors/eucalyp and is licensed by creativecommons.org/licenses/by/3.0/</div>
-    </description>
-</LightningComponentBundle>
+        <div>Icon made by www.flaticon.com/authors/eucalyp and is licensed by creativecommons.org/licenses/by/3.0/
+        </description>
+    </LightningComponentBundle>
