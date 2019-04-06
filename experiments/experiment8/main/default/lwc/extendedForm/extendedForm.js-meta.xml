@@ -2,4 +2,7 @@
 <LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="extendedForm">
     <apiVersion>45.0</apiVersion>
     <isExposed>false</isExposed>
+    <description>
+        <div>Icon made by www.flaticon.com/authors/eucalyp and is licensed by creativecommons.org/licenses/by/3.0/</div>
+    </description>
 </LightningComponentBundle>

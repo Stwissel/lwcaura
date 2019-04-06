@@ -9,7 +9,8 @@ export default class SpecialInput extends LightningElement {
         window.clearTimeout(this.timeout);
         let realData = {
             name: this.fieldName,
-            value: 'X:' + event.target.value
+            /* All uppercase */
+            value: event.target.value.toUpperCase()
         };
         // Do we need this
         this.value = realData.value;
