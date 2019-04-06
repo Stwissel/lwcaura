@@ -3,7 +3,7 @@
     <apiVersion>45.0</apiVersion>
     <isExposed>true</isExposed>
     <masterLabel>Quick Object Lookup</masterLabel>
-    <description>Mobile save Object Lookup</description>
+    <description>Mobile suitable Object Lookup, comtiable to  extended form. icon by www.freepik.com licensed by http://creativecommons.org/licenses/by/3.0/</description>
     <targets>
         <target>lightning__RecordPage</target>
         <target>lightning__AppPage</target>
