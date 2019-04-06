@@ -1,0 +1,9 @@
+.list-title {
+    font-size: bigger !important;
+    font-weight: bold !important;
+}
+
+.list-details {
+    font-size: smaller;
+    font-weight: lighter;
+}
