@@ -67,3 +67,37 @@ Creation of 2 lwc components. The `slotMachine` has an unnamed `<slot>` element 
 Add the `bubbleDemo` to a lightning app page. `colorEmitter` emits a custom event `colorSelected` that the `slotMachine` listens to.
 
 ## Experiment 8
+
+Extending the ability of `record-edit-form` to use custom input fields. Forms can look this this:
+
+```xml
+<template>
+    <lightning-card title="Form Sample">
+        <div class="slds-p-horizontal_small">
+            <c-extended-form object-api-name="Account">
+                <lightning-layout-item size="6" padding="around-medium">
+                    <lightning-input-field
+                        field-name="Name"
+                    ></lightning-input-field>
+                </lightning-layout-item>
+                <lightning-layout-item size="6" padding="around-medium"
+                    ><lightning-input-field
+                        field-name="AccountSource"
+                    ></lightning-input-field
+                ></lightning-layout-item>
+                <lightning-layout-item size="6" padding="around-medium"
+                    ><lightning-input-field
+                        field-name="AccountNumber"
+                    ></lightning-input-field
+                ></lightning-layout-item>
+                <lightning-layout-item size="6" padding="around-medium"
+                    ><c-special-input
+                        field-name="Phone"
+                        data-field
+                    ></c-special-input>
+                </lightning-layout-item>
+            </c-extended-form>
+        </div>
+    </lightning-card>
+</template>
+```

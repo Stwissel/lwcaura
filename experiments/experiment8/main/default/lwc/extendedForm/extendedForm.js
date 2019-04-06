@@ -11,7 +11,7 @@ export default class ExtendedForm extends NavigationMixin(LightningElement) {
         super();
         // Holds our fields
         this.specialFieldMap = {};
-        this.addEventListener('valueChanged', this.listenDataChange, false);
+        this.addEventListener('valueChanged', this.listenDataChange, true);
     }
 
     /* Capturing all changed values from our data control */
@@ -51,7 +51,6 @@ export default class ExtendedForm extends NavigationMixin(LightningElement) {
                 fields[key] = this.specialFieldMap[key];
             }
         }
-
         this.template
             .querySelector('lightning-record-edit-form')
             .submit(fields);
