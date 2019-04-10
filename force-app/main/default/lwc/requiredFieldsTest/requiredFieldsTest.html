@@ -1,0 +1,56 @@
+<template>
+    <lightning-card title="Test">
+        <lightning-layout multiple-rows="true">
+            <lightning-record-edit-form
+                object-api-name="FormTest__c"
+                onsubmit={handleSubmit}
+                onsuccess={handleSuccess}
+                onerror={handleError}
+            >
+                <lightning-layout-item size="12">
+                    <lightning-messages> </lightning-messages>
+                </lightning-layout-item>
+                <lightning-layout-item size="6">
+                    <lightning-input-field field-name="Name">
+                    </lightning-input-field>
+                </lightning-layout-item>
+                <lightning-layout-item size="6">
+                    <lightning-input-field field-name="Color__c">
+                    </lightning-input-field>
+                </lightning-layout-item>
+                <lightning-layout-item size="6">
+                    <lightning-input-field field-name="Status__c">
+                    </lightning-input-field>
+                </lightning-layout-item>
+                <lightning-layout-item size="6" if:true={visibility.number}>
+                    <lightning-input-field field-name="SomeNumber__c">
+                    </lightning-input-field>
+                </lightning-layout-item>
+                <lightning-layout-item size="6">
+                    <lightning-output-field
+                        field-name="CreatedById"
+                    ></lightning-output-field>
+                </lightning-layout-item>
+                <lightning-layout-item size="6">
+                    <lightning-button
+                        class="slds-m-top_small"
+                        variant="brand"
+                        type="submit"
+                        name="create"
+                        label="Create"
+                    >
+                    </lightning-button>
+                </lightning-layout-item>
+                <lightning-layout-item size="6">
+                    <lightning-button
+                        class="slds-m-top_small"
+                        variant="neutral"
+                        name="show"
+                        label="Toggle Number"
+                        onclick={toggleNumber}
+                    ></lightning-button>
+                </lightning-layout-item>
+            </lightning-record-edit-form>
+        </lightning-layout>
+    </lightning-card>
+</template>
