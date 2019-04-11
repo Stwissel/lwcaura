@@ -2,7 +2,7 @@ import { LightningElement, track } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
 export default class RequiredFieldsTest extends LightningElement {
-    @track visibility = {};
+    @track canSee = {};
 
     constructor() {
         super();
@@ -21,12 +21,14 @@ export default class RequiredFieldsTest extends LightningElement {
         debugger;
         let details = event.detail;
         let errorMsg =
-            JSON.stringify(details.detail, null, 2) || 'Unknown error';
-        this.showNotification(errorMsg, details.message);
+            (details.output
+                ? JSON.stringify(details.output)
+                : JSON.stringify(details.detail)) || 'Unknown error';
+        this.showNotification(errorMsg, 'error');
     }
 
     toggleNumber() {
-        this.visibility.number = !this.visibility.number;
+        this.canSee.number = !this.canSee.number;
     }
 
     showNotification(message, variant) {
