@@ -1,0 +1,14 @@
+<template>
+    <div class="content" onclick={toggleSelect}>
+        <div class="rightIcon" if:true={isSelected}>
+            <lightning-icon
+                icon-name="action:approval"
+                alternative-text="Selected"
+            ></lightning-icon>
+        </div>
+        <p>{cardTitle}</p>
+        <p>Card Body</p>
+        ({isSelected})
+        <slot></slot>
+    </div>
+</template>

@@ -1,0 +1,12 @@
+.selected {
+    border: 5px solid darkgreen;
+    background-color: lemonchiffon;
+}
+
+.rightIcon {
+    float: right;
+}
+
+div.content {
+    min-height: 40px;
+}
