@@ -2,15 +2,14 @@ import { LightningElement, api, track } from 'lwc';
 import { panelDeselected, panelSelected, registerPanel } from './selector';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
-const groupName = 'Demo';
-
 export default class SelectablePanel extends LightningElement {
     @api cardTitle;
+    @api groupName = 'Demo';
     @track isSelected = false;
 
     connectedCallback() {
         this.panelName = registerPanel(
-            { name: groupName, max: 2, min: 1 },
+            { name: this.groupName, max: 2, min: 1 },
             this.setSelected
         );
     }
@@ -36,9 +35,9 @@ export default class SelectablePanel extends LightningElement {
         const on = !this.isSelected;
         this.setSelected(on);
         if (on) {
-            panelSelected(groupName, this.panelName);
+            panelSelected(this.groupName, this.panelName);
         } else {
-            panelDeselected(groupName, this.panelName);
+            panelDeselected(this.groupName, this.panelName);
         }
     }
 }

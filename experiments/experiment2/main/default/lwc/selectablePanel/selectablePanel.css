@@ -1,12 +1,22 @@
-.selected {
-    border: 5px solid darkgreen;
-    background-color: lemonchiffon;
-}
-
-.rightIcon {
-    float: right;
-}
-
 div.content {
     min-height: 40px;
+    border: 1px solid gray;
+}
+
+.selected {
+    background-color: #eeffee;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTIwIDI0MCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8Zz48cG9seWdvbiBmaWxsPSIjMDA2NjAwIiBwb2ludHM9IjAuMCAwLjAgMTIwLjAgMC4wIDEyMC4wIDEyMC4wIj48L3BvbHlnb24+CjxwYXRoIGQ9Ik04MC4zMzEwNTQ3LDU2LjA4Mzk4NDQgQzc5LjYyNzkyNjIsNTQuNTQxMDA3OSA3OS4xOTgyNDMsNTMuNTc0MjIwNyA3OS4wNDE5OTIyLDUzLjE4MzU5MzggTDc3LjI1NDg4MjgsNDkuMDUyNzM0NCBDNzYuNzA4MDA1MSw0Ny43ODMxOTY4IDc2LjIzOTI1OTgsNDYuNzQ4MDUwOSA3NS44NDg2MzI4LDQ1Ljk0NzI2NTYgTDc0Ljc2NDY0ODQsNDMuNzUgQzcyLjY3NDc5NDIsMzkuNjA5MzU0MyA3MC4yMDQxMTU4LDM2LjY4OTQ2MTYgNjcuMzUyNTM5MSwzNC45OTAyMzQ0IEM3MC42OTIzOTk1LDMyLjE3NzcyMDMgNzMuNjcwODg1NCwzMC43NzE0ODQ0IDc2LjI4ODA4NTksMzAuNzcxNDg0NCBDNzguMDI2Mzc1OSwzMC43NzE0ODQ0IDc5LjM5MzU0OTcsMzEuNDQwNDIzIDgwLjM4OTY0ODQsMzIuNzc4MzIwMyBDODEuMzg1NzQ3MiwzNC4xMTYyMTc2IDgyLjIzNTM0OCwzNi40MzU1MzA0IDgyLjkzODQ3NjYsMzkuNzM2MzI4MSBDODguMDE2NjI3LDMwLjEwNzM3MzcgOTEuOTcxNjY1NSwyMy40NTcwNDk2IDk0LjgwMzcxMDksMTkuNzg1MTU2MiBDOTcuMzQyNzg2MSwxNi40ODQzNTg1IDk5LjUxNTYxNiwxNC4yOTY4ODA0IDEwMS4zMjIyNjYsMTMuMjIyNjU2MiBDMTAzLjEyODkxNSwxMi4xNDg0MzIxIDEwNS41MjYzNTIsMTEuNjExMzI4MSAxMDguNTE0NjQ4LDExLjYxMTMyODEgQzExMC4zODk2NTgsMTEuNjExMzI4MSAxMTIuNDIwODg3LDExLjk3MjY1MjYgMTE0LjYwODM5OCwxMi42OTUzMTI1IEMxMDkuNTEwNzE3LDE2LjAzNTE3MjkgMTAzLjk0OTI0OSwyMS41MjMzOTkzIDk3LjkyMzgyODEsMjkuMTYwMTU2MiBDOTEuODk4NDA3NCwzNi43OTY5MTMyIDg2LjAzNDIwODIsNDUuNzcxNDMyOCA4MC4zMzEwNTQ3LDU2LjA4Mzk4NDQgWiIgaWQ9IuKckyIgZmlsbD0iI0ZGRkZGRiIgZmlsbC1ydWxlPSJub256ZXJvIj48L3BhdGg+PC9nPjwvc3ZnPg==');
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: 1px solid darkgreen;
+}
+
+.deleted {
+    background-color: #ffeeee;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIAogICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnPgogICAgICAgIDxwb2x5Z29uIGZpbGw9IiNDQzAwMDAiIHBvaW50cz0iMC4wIDAuMCAxMjAuMCAwLjAgMTIwLjAgMTIwLjAiPjwvcG9seWdvbj4KICAgICAgICA8dGV4dCBmb250LXNpemU9IjEwMCUiIGZpbGw9IiNGRkNDQ0MiPgogICAgICAgICAgICA8dHNwYW4geD0iNTAlIiB5PSI1MCUiPuKcljwvdHNwYW4+CiAgICAgICAgPC90ZXh0PgogICAgPC9nPgo8L3N2Zz4=');
+    background-position: top right;
+    background-repeat: no-repeat;
+    padding-right: 32px;
+    background-size: contain;
 }
